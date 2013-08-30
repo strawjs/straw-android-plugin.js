@@ -1,4 +1,4 @@
-// straw-android-plugin
+// straw-android-http-plugin
 
 window.straw.http = (function (straw, $) {
     'use strict';
