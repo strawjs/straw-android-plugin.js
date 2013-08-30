@@ -1,0 +1,20 @@
+{
+  "name": "straw-android-plugin.js",
+  "version": "0.0.1",
+  "description": "straw-android-plugin js wrapper",
+  "main": "index.js",
+  "scripts": {
+    "test": "grunt"
+  },
+  "repository": "",
+  "author": "Yosiya Hinosawa",
+  "license": "MIT",
+  "readmeFilename": "README.md",
+  "gitHead": "de36925712dce5a7614379d1c7df18c9edfd9b68",
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-jasmine": "~0.5.1",
+    "grunt-contrib-jshint": "~0.6.4",
+    "grunt-cli": "~0.1.9"
+  }
+}
