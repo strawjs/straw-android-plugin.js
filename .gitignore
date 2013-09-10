@@ -1,4 +1,8 @@
 # npm modules
 node_modules
 
+# spec runner of jasmine (of grunt-contrib-jasmine)
+_SpecRunner.html
 
+# grunt temporary files
+.grunt
