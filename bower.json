@@ -10,6 +10,7 @@
     "package.json",
     "Gruntfile.coffee",
     "README.md",
+    "bower_components",
     "spec"
   ]
 }
