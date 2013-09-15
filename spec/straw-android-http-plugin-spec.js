@@ -1,9 +1,12 @@
 
+var describe = window.describe;
+var it = window.it;
+var expect = window.expect;
+
+var straw = window.straw;
 
 describe('http', function () {
     'use strict';
-
-    var expect = window.expect;
 
     it('exists', function () {
         expect(straw).not.toEqual(null);

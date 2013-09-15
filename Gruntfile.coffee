@@ -4,7 +4,7 @@ module.exports = (g) ->
   g.initConfig
 
     jshint:
-      all: ['src/*.js']
+      all: ['src/*.js', 'spec/*.js']
       options:
         jshintrc: '.jshintrc'
 
@@ -21,4 +21,4 @@ module.exports = (g) ->
   g.loadNpmTasks 'grunt-contrib-jshint'
   g.loadNpmTasks 'grunt-contrib-jasmine'
 
-  g.registerTask 'default', ['jshint']
+  g.registerTask 'default', ['jshint', 'jasmine']
