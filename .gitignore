@@ -6,3 +6,6 @@ _SpecRunner.html
 
 # grunt temporary files
 .grunt
+
+# bower components
+bower_components

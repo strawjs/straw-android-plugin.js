@@ -12,5 +12,10 @@
     "README.md",
     "bower_components",
     "spec"
-  ]
+  ],
+  "devDependencies": {
+    "jquery": "~2.0.3",
+    "sinon": "~1.7.3",
+    "straw-android.js": "git@github.com:kt3k/straw-android.js.git#0.0.1"
+  }
 }
