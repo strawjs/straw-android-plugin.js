@@ -1,9 +1,9 @@
 // straw-android-activity-plugin
 
-window.straw.activity= (function (straw, $) {
+window.straw.activity = (function () {
     'use strict';
 
-    var PLUGIN_NAME = 'activity';
+    //var PLUGIN_NAME = 'activity';
 
     var exports = {
     };

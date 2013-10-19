@@ -1,9 +1,9 @@
 // straw-android-options-menu-plugin
 
-window.straw.optionsMenu = (function (straw, $) {
+window.straw.optionsMenu = (function () {
     'use strict';
 
-    var PLUGIN_NAME = 'optionsMenu';
+    //var PLUGIN_NAME = 'optionsMenu';
 
     var exports = {
     };
