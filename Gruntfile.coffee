@@ -9,9 +9,10 @@ module.exports = (g) ->
         jshintrc: '.jshintrc'
 
     jasmine:
-      src: ['src/**/*.js']
+      src: ['src/*.js']
       options:
         specs: ['spec/*.js']
+        helpers: ['spec/helper/*.js']
         vendor: [
           'bower_components/jquery/jquery.min.js'
           'bower_components/sinon/lib/sinon.js'
