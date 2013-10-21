@@ -7,11 +7,13 @@ window.straw.http = (function (straw, $) {
     var ACTION_GET = 'get';
 
     var exports = {
-        get: function (url) {
+        get: function (url, timeout, charset) {
             var d = $.Deferred();
 
             straw.exec(HTTP_PLUGIN, ACTION_GET, {
-                url: url
+                url: url,
+                timeout: timeout,
+                charset: charset
             }, function (x) {
                 d.resolve(x);
             }, function (x) {
