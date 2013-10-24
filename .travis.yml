@@ -7,3 +7,6 @@ before_script:
 - npm install -g bower
 - npm install -g grunt-cli
 - bower install
+
+after_success:
+- grunt cov | ./node_modules/jasmine-jscoverage-reporter/convert-to-coveralls.js | curl -F "json_file=@-" https://coveralls.io/api/v1/jobs
