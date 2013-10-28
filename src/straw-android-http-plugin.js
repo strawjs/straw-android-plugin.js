@@ -3,14 +3,14 @@
 window.straw.http = (function (straw, $) {
     'use strict';
 
-    var HTTP_PLUGIN = 'http';
+    var PLUGIN_NAME = 'http';
     var ACTION_GET = 'get';
 
     var exports = {
         get: function (url, timeout, charset) {
             var d = $.Deferred();
 
-            straw.exec(HTTP_PLUGIN, ACTION_GET, {
+            straw.exec(PLUGIN_NAME, ACTION_GET, {
                 url: url,
                 timeout: timeout,
                 charset: charset
