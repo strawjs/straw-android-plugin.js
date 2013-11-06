@@ -80,7 +80,7 @@ describe('http', function () {
                 var spy2 = sinon.spy();
                 var spy3 = sinon.spy();
 
-                straw.http.get('http://example.com/', 123, 'shift_jis').done(spy2).fail(spy3);
+                straw.sharedPreferences.get('a_key', {abc: 123}).done(spy2).fail(spy3);
 
                 var callbackId = spy.getCall(0).args[3];
 
