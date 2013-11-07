@@ -32,11 +32,11 @@ window.straw.sharedPreferences = (function (straw, $) {
                 value: JSON.stringify(value)
 
             }, function (x) {
-                x = JSON.parse(x.value);
-                d.resolve(x);
+                var value = JSON.parse(x.value);
+                d.resolve(value);
 
-            }, function (x) {
-                d.reject(x);
+            }, function (err) {
+                d.reject(err);
 
             });
 
@@ -63,9 +63,12 @@ window.straw.sharedPreferences = (function (straw, $) {
                 value: JSON.stringify(value)
 
             }, function (x) {
-                d.resolve(x.value);
-            }, function (x) {
-                d.reject(x);
+                var value = JSON.parse(x.value);
+                d.resolve(value);
+
+            }, function (err) {
+                d.reject(err);
+
             });
 
             return d.promise();
@@ -76,11 +79,14 @@ window.straw.sharedPreferences = (function (straw, $) {
 
             straw.exec(PLUGIN_NAME, ACTION_HAS, {
                 key: key
+
             }, function (x) {
-                JSON.parse(x.value);
-                d.resolve(x);
-            }, function (x) {
-                d.reject(x);
+                var value = JSON.parse(x.value);
+                d.resolve(value);
+
+            }, function (err) {
+                d.reject(err);
+
             });
 
             return d.promise();
@@ -90,9 +96,12 @@ window.straw.sharedPreferences = (function (straw, $) {
             var d = $.Deferred();
 
             straw.exec(PLUGIN_NAME, ACTION_CLEAR, {}, function (x) {
-                d.resolve(x);
-            }, function (x) {
-                d.reject(x);
+                var value = JSON.parse(x.value);
+                d.resolve(value);
+
+            }, function (err) {
+                d.reject(err);
+
             });
 
             return d.promise();
@@ -103,10 +112,14 @@ window.straw.sharedPreferences = (function (straw, $) {
 
             straw.exec(PLUGIN_NAME, ACTION_REMOVE, {
                 key: key
+
             }, function (x) {
-                d.resolve(x);
-            }, function (x) {
-                d.reject(x);
+                var value = JSON.parse(x.value);
+                d.resolve(value);
+
+            }, function (err) {
+                d.reject(err);
+
             });
 
             return d.promise();
@@ -117,8 +130,10 @@ window.straw.sharedPreferences = (function (straw, $) {
 
             straw.exec(PLUGIN_NAME, ACTION_DUMP, {}, function (x) {
                 d.resolve(x.value);
-            }, function (x) {
-                d.reject(x);
+
+            }, function (err) {
+                d.reject(err);
+
             });
 
             return d.promise();

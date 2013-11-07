@@ -130,6 +130,53 @@ describe('http', function () {
 
         });
 
+        describe('success handler', function () {
+
+            it('will be called, when plugin execution succeeded', function () {
+
+                var spy = sinon.spy(straw.JS_TO_NATIVE_INTERFACE, 'exec');
+                var spy2 = sinon.spy();
+                var spy3 = sinon.spy();
+
+                straw.sharedPreferences.set('a_key', {abc: 123}).done(spy2).fail(spy3);
+
+                var callbackId = spy.getCall(0).args[3];
+
+                straw.NATIVE_TO_JS_INTERFACE.exec(callbackId, true, {value: 'true'}, false);
+
+                expect(spy2.calledOnce).toBe(true);
+                expect(spy2.getCall(0).args[0]).toBe(true);
+                expect(spy3.called).toBe(false);
+
+                spy.restore();
+            });
+
+        });
+
+        describe('failure handler', function () {
+
+            it('will be called, when plugin execution failed', function () {
+
+                var spy = sinon.spy(straw.JS_TO_NATIVE_INTERFACE, 'exec');
+                var spy2 = sinon.spy();
+                var spy3 = sinon.spy();
+
+                straw.sharedPreferences.set('a_key', {abc: 123}).done(spy2).fail(spy3);
+
+                var callbackId = spy.getCall(0).args[3];
+
+                straw.NATIVE_TO_JS_INTERFACE.exec(callbackId, false, {code: '1234', message: 'abc'}, false);
+
+                expect(spy2.called).toBe(false);
+                expect(spy3.calledOnce).toBe(true);
+                expect(spy3.getCall(0).args[0].code).toBe('1234');
+                expect(spy3.getCall(0).args[0].message).toBe('abc');
+
+                spy.restore();
+            });
+
+        });
+
     });
 
 
@@ -161,6 +208,53 @@ describe('http', function () {
 
         });
 
+        describe('success handler', function () {
+
+            it('will be called, when plugin execution succeeded', function () {
+
+                var spy = sinon.spy(straw.JS_TO_NATIVE_INTERFACE, 'exec');
+                var spy2 = sinon.spy();
+                var spy3 = sinon.spy();
+
+                straw.sharedPreferences.has('a_key').done(spy2).fail(spy3);
+
+                var callbackId = spy.getCall(0).args[3];
+
+                straw.NATIVE_TO_JS_INTERFACE.exec(callbackId, true, {value: 'true'}, false);
+
+                expect(spy2.calledOnce).toBe(true);
+                expect(spy2.getCall(0).args[0]).toBe(true);
+                expect(spy3.called).toBe(false);
+
+                spy.restore();
+            });
+
+        });
+
+        describe('failure handler', function () {
+
+            it('will be called, when plugin execution failed', function () {
+
+                var spy = sinon.spy(straw.JS_TO_NATIVE_INTERFACE, 'exec');
+                var spy2 = sinon.spy();
+                var spy3 = sinon.spy();
+
+                straw.sharedPreferences.has('a_key', {abc: 123}).done(spy2).fail(spy3);
+
+                var callbackId = spy.getCall(0).args[3];
+
+                straw.NATIVE_TO_JS_INTERFACE.exec(callbackId, false, {code: '1234', message: 'abc'}, false);
+
+                expect(spy2.called).toBe(false);
+                expect(spy3.calledOnce).toBe(true);
+                expect(spy3.getCall(0).args[0].code).toBe('1234');
+                expect(spy3.getCall(0).args[0].message).toBe('abc');
+
+                spy.restore();
+            });
+
+        });
+
     });
 
 
@@ -178,11 +272,58 @@ describe('http', function () {
 
             straw.sharedPreferences.clear();
 
-            // sharedPreferences plugin's remove action
+            // sharedPreferences plugin's clear action
             expect(spy.getCall(0).args[0]).toBe('sharedPreferences');
             expect(spy.getCall(0).args[1]).toBe('clear');
 
             straw.exec.restore();
+
+        });
+
+        describe('success handler', function () {
+
+            it('will be called, when plugin execution succeeded', function () {
+
+                var spy = sinon.spy(straw.JS_TO_NATIVE_INTERFACE, 'exec');
+                var spy2 = sinon.spy();
+                var spy3 = sinon.spy();
+
+                straw.sharedPreferences.clear().done(spy2).fail(spy3);
+
+                var callbackId = spy.getCall(0).args[3];
+
+                straw.NATIVE_TO_JS_INTERFACE.exec(callbackId, true, {value: 'true'}, false);
+
+                expect(spy2.calledOnce).toBe(true);
+                expect(spy2.getCall(0).args[0]).toBe(true);
+                expect(spy3.called).toBe(false);
+
+                spy.restore();
+            });
+
+        });
+
+        describe('failure handler', function () {
+
+            it('will be called, when plugin execution failed', function () {
+
+                var spy = sinon.spy(straw.JS_TO_NATIVE_INTERFACE, 'exec');
+                var spy2 = sinon.spy();
+                var spy3 = sinon.spy();
+
+                straw.sharedPreferences.clear().done(spy2).fail(spy3);
+
+                var callbackId = spy.getCall(0).args[3];
+
+                straw.NATIVE_TO_JS_INTERFACE.exec(callbackId, false, {code: '1234', message: 'abc'}, false);
+
+                expect(spy2.called).toBe(false);
+                expect(spy3.calledOnce).toBe(true);
+                expect(spy3.getCall(0).args[0].code).toBe('1234');
+                expect(spy3.getCall(0).args[0].message).toBe('abc');
+
+                spy.restore();
+            });
 
         });
 
@@ -217,6 +358,53 @@ describe('http', function () {
 
         });
 
+        describe('success handler', function () {
+
+            it('will be called, when plugin execution succeeded', function () {
+
+                var spy = sinon.spy(straw.JS_TO_NATIVE_INTERFACE, 'exec');
+                var spy2 = sinon.spy();
+                var spy3 = sinon.spy();
+
+                straw.sharedPreferences.remove('a_key').done(spy2).fail(spy3);
+
+                var callbackId = spy.getCall(0).args[3];
+
+                straw.NATIVE_TO_JS_INTERFACE.exec(callbackId, true, {value: 'true'}, false);
+
+                expect(spy2.calledOnce).toBe(true);
+                expect(spy2.getCall(0).args[0]).toBe(true);
+                expect(spy3.called).toBe(false);
+
+                spy.restore();
+            });
+
+        });
+
+        describe('failure handler', function () {
+
+            it('will be called, when plugin execution failed', function () {
+
+                var spy = sinon.spy(straw.JS_TO_NATIVE_INTERFACE, 'exec');
+                var spy2 = sinon.spy();
+                var spy3 = sinon.spy();
+
+                straw.sharedPreferences.get('a_key', {abc: 123}).done(spy2).fail(spy3);
+
+                var callbackId = spy.getCall(0).args[3];
+
+                straw.NATIVE_TO_JS_INTERFACE.exec(callbackId, false, {code: '1234', message: 'abc'}, false);
+
+                expect(spy2.called).toBe(false);
+                expect(spy3.calledOnce).toBe(true);
+                expect(spy3.getCall(0).args[0].code).toBe('1234');
+                expect(spy3.getCall(0).args[0].message).toBe('abc');
+
+                spy.restore();
+            });
+
+        });
+
     });
 
 
@@ -241,6 +429,54 @@ describe('http', function () {
             straw.exec.restore();
 
         });
+
+        describe('success handler', function () {
+
+            it('will be called, when plugin execution succeeded', function () {
+
+                var spy = sinon.spy(straw.JS_TO_NATIVE_INTERFACE, 'exec');
+                var spy2 = sinon.spy();
+                var spy3 = sinon.spy();
+
+                straw.sharedPreferences.dump().done(spy2).fail(spy3);
+
+                var callbackId = spy.getCall(0).args[3];
+
+                straw.NATIVE_TO_JS_INTERFACE.exec(callbackId, true, {value: 'dumped data'}, false);
+
+                expect(spy2.calledOnce).toBe(true);
+                expect(spy2.getCall(0).args[0]).toBe('dumped data');
+                expect(spy3.called).toBe(false);
+
+                spy.restore();
+            });
+
+        });
+
+        describe('failure handler', function () {
+
+            it('will be called, when plugin execution failed', function () {
+
+                var spy = sinon.spy(straw.JS_TO_NATIVE_INTERFACE, 'exec');
+                var spy2 = sinon.spy();
+                var spy3 = sinon.spy();
+
+                straw.sharedPreferences.dump().done(spy2).fail(spy3);
+
+                var callbackId = spy.getCall(0).args[3];
+
+                straw.NATIVE_TO_JS_INTERFACE.exec(callbackId, false, {code: '1234', message: 'abc'}, false);
+
+                expect(spy2.called).toBe(false);
+                expect(spy3.calledOnce).toBe(true);
+                expect(spy3.getCall(0).args[0].code).toBe('1234');
+                expect(spy3.getCall(0).args[0].message).toBe('abc');
+
+                spy.restore();
+            });
+
+        });
+
 
     });
 });
