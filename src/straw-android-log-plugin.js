@@ -17,9 +17,6 @@ window.straw.log = (function (straw) {
 
         label: DEFAULT_LABEL,
 
-        setLabel: function (label) {
-            this.label = label;
-        },
 
         verbose: function (message, label) {
             straw.exec(PLUGIN_NAME, ACTION_VERBOSE, {
@@ -28,12 +25,14 @@ window.straw.log = (function (straw) {
             });
         },
 
+
         debug: function (message, label) {
             straw.exec(PLUGIN_NAME, ACTION_DEBUG, {
                 message: message,
                 label: label || this.label
             });
         },
+
 
         info: function (message, label) {
             straw.exec(PLUGIN_NAME, ACTION_INFO, {
@@ -42,6 +41,7 @@ window.straw.log = (function (straw) {
             });
         },
 
+
         warn: function (message, label) {
             straw.exec(PLUGIN_NAME, ACTION_WARN, {
                 message: message,
@@ -49,12 +49,14 @@ window.straw.log = (function (straw) {
             });
         },
 
+
         error: function (message, label) {
             straw.exec(PLUGIN_NAME, ACTION_ERROR, {
                 message: message,
                 label: label || this.label
             });
         }
+
 
     };
 

@@ -32,6 +32,15 @@ describe('log', function () {
             expect(args[2].message).toBe('abc');
             expect(args[2].label).toBe('straw');
 
+            straw.log.verbose('ABC', 'a label');
+
+            args = spy.getCall(1).args;
+
+            expect(args[0]).toBe('log');
+            expect(args[1]).toBe('verbose');
+            expect(args[2].message).toBe('ABC');
+            expect(args[2].label).toBe('a label');
+
             spy.restore();
         });
 
@@ -50,6 +59,15 @@ describe('log', function () {
             expect(args[1]).toBe('debug');
             expect(args[2].message).toBe('abc');
             expect(args[2].label).toBe('straw');
+
+            straw.log.debug('ABC', 'a label');
+
+            args = spy.getCall(1).args;
+
+            expect(args[0]).toBe('log');
+            expect(args[1]).toBe('debug');
+            expect(args[2].message).toBe('ABC');
+            expect(args[2].label).toBe('a label');
 
             spy.restore();
         });
@@ -70,6 +88,15 @@ describe('log', function () {
             expect(args[2].message).toBe('abc');
             expect(args[2].label).toBe('straw');
 
+            straw.log.info('ABC', 'a label');
+
+            args = spy.getCall(1).args;
+
+            expect(args[0]).toBe('log');
+            expect(args[1]).toBe('info');
+            expect(args[2].message).toBe('ABC');
+            expect(args[2].label).toBe('a label');
+
             spy.restore();
         });
 
@@ -89,6 +116,15 @@ describe('log', function () {
             expect(args[2].message).toBe('abc');
             expect(args[2].label).toBe('straw');
 
+            straw.log.warn('ABC', 'a label');
+
+            args = spy.getCall(1).args;
+
+            expect(args[0]).toBe('log');
+            expect(args[1]).toBe('warn');
+            expect(args[2].message).toBe('ABC');
+            expect(args[2].label).toBe('a label');
+
             spy.restore();
         });
 
@@ -107,6 +143,15 @@ describe('log', function () {
             expect(args[1]).toBe('error');
             expect(args[2].message).toBe('abc');
             expect(args[2].label).toBe('straw');
+
+            straw.log.error('ABC', 'a label');
+
+            args = spy.getCall(1).args;
+
+            expect(args[0]).toBe('log');
+            expect(args[1]).toBe('error');
+            expect(args[2].message).toBe('ABC');
+            expect(args[2].label).toBe('a label');
 
             spy.restore();
         });
