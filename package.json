@@ -1,6 +1,6 @@
 {
   "name": "straw-android-plugin.js",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "straw-android-plugin js wrapper",
   "main": "index.js",
   "scripts": {
