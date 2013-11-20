@@ -1,0 +1,6 @@
+---
+version: 0.0.2
+files:
+  README.md: true
+  bower.json: "version": "#{V}"
+  package.json: "version": "#{V}"
